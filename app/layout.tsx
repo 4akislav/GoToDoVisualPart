@@ -10,13 +10,17 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
+  isAuthenticated,
   children,
 }: {
   children: React.ReactNode
+  isAuthenticated: boolean,
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${isAuthenticated ? 'logged-in' : ''}`}>
+        {children}
+      </body>
     </html>
   )
 }
